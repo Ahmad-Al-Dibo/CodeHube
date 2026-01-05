@@ -3,5 +3,5 @@ from . import views
 
 
 urlpatterns=[
-    path("<int:lesson_id>", views.view_lesson, name="view_lesson"),
+    path("<slug:course_slug>/<slug:lesson_slug>", views.view_lesson, name="view_lesson"),
 ]

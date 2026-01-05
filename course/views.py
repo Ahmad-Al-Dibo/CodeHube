@@ -6,8 +6,8 @@ from lesson.models import Lesson
 
 # Create your views here.
 
-def course_detail(request, course_id):
-    course = get_object_or_404(Course, id=course_id)
+def course_detail(request, course_slug):
+    course = get_object_or_404(Course, slug=course_slug)
     lessons = Lesson.objects.filter(course=course)
     if course:
         return render(request, "dashboard/course.html", context={

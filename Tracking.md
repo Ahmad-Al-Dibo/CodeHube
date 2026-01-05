@@ -38,7 +38,7 @@ Development TEAM: Startup team
 reported-by: Ahmad Al Dibo
 importance: medium
 category: Improvement
-status: Open
+status: Confirmed on 1/5/2026 6:57 PM
 Title: Change Lesson and Course URLs to Use Slugs Instead of IDs
 slug: change-lesson-course-urls-to-slugs
 short-description: Update lesson and course URLs to use slugs for better readability.
@@ -122,3 +122,44 @@ steps-to-reproduce:
 expected-behavior: The user lessons view should display only the lessons created by the logged-in user.
 actual-behavior: The user lessons view currently shows lessons the user is enrolled in.
 suggested-fix: Update the user lessons view to filter lessons by the logged-in user.
+# -----
+DATE: 1/5/2026 6:20 PM
+Development TEAM: Startup team
+reported-by: Ahmad Al Dibo
+importance: high
+category: Improvement
+status: Open
+Title: Lesson Creation Fails to Submit Without Thumbnail Image Change
+slug: lesson-creation-redirect-issue
+short-description: Lesson creation form does not submit properly when thumbnail image is not modified.
+long-description: When creating a new lesson, clicking the submit button without modifying the thumbnail image causes the form to redirect back to the same page without saving the lesson, even though all required fields are filled. The server responds with HTTP 200 and returns the form page. However, if the thumbnail image is changed, the lesson is created successfully. This indicates a validation or form handling issue specific to the thumbnail field.
+steps-to-reproduce:
+1. Fill out all fields in the lesson creation form (title, description, content, etc.).
+2. Do NOT change the thumbnail image field.
+3. Click the submit button.
+4. Observe that the page refreshes without creating the lesson.
+5. Verify that changing the thumbnail image allows the form to submit successfully.
+expected-behavior: The lesson should be created successfully and the user should be redirected to the appropriate page after clicking the submit button, regardless of whether the thumbnail image is modified.
+actual-behavior: The form submission fails silently and redirects back to the same page when the thumbnail image is not changed, even with all other fields properly filled.
+suggested-fix: Review the lesson creation logic and form validation to ensure the thumbnail field does not enforce unexpected validation constraints when the value remains unchanged. Consider allowing optional thumbnail updates or implementing proper default handling for unchanged file fields.
+# -----
+
+DATE: 1/5/2026 7:10 PM
+Development TEAM: Startup team
+reported-by: Ahmad Al Dibo
+importance: medium
+category: Improvement
+status: Open
+Title: user icon or picture not showing in lesson view or authers.
+slug: user-icon-not-showing-in-lesson-view
+short-description: User icon or picture is not displayed in the lesson view or author sections.
+long-description: In the lesson view and author sections, the user icon or picture is not being displayed as expected. This issue affects the visual representation of authors and may impact user experience. The implementation needs to be reviewed to ensure that the correct image URLs are being used and that the images are properly rendered in the templates.
+steps-to-reproduce:
+1. Navigate to a lesson view or author section.
+2. Observe that the user icon or picture is not displayed.
+expected-behavior: The user icon or picture should be displayed correctly in the lesson view and
+author sections.
+actual-behavior: The user icon or picture is not shown in the lesson view or author
+sections.
+suggested-fix: Review the template code and ensure that the correct image URLs are being used to display user icons or pictures. Verify that the images are accessible and properly rendered in the HTML.
+# -----
