@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% load static %}
+
+{% block head %}
+
+<script type="module" src="{% static 'js/dashboard/new_lesson.js' %}"></script>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container my-5">
+
+    <!-- Navigation tabs (server-side) -->
+    <nav>
+        <div class="nav nav-tabs" role="tablist">
+            <a class="nav-link {% if active_tab == 'profile' %}active{% endif %}"
+            href="{% url 'profile' %}"
+            role="tab"
+            aria-selected="{% if active_tab == 'profile' %}true{% else %}false{% endif %}">
+                Profile
+            </a>
+
+            <a class="nav-link {% if active_tab == 'new_lesson' %}active{% endif %}"
+            href="{% url 'new_lesson' %}"
+            role="tab"
+            aria-selected="{% if active_tab == 'new_lesson' %}true{% else %}false{% endif %}">
+                New Lesson
+            </a>
+
+            <a class="nav-link {% if active_tab == 'user_lessons' %}active{% endif %}"
+            href="{% url 'user_lessons' %}"
+            role="tab"
+            aria-selected="{% if active_tab == 'user_lessons' %}true{% else %}false{% endif %}">
+                Your Lessons
+            </a>
+
+            <a class="nav-link {% if active_tab == 'recruitment' %}active{% endif %}"
+            href=""
+            role="tab"
+            aria-selected="{% if active_tab == 'recruitment' %}true{% else %}false{% endif %}">
+                New Recruitment
+            </a>
+
+        </div>
+    </nav>
+
+    <!-- Content -->
+    
+
+    <div class="tab-content mt-4">
+        {% block profile %}{% endblock profile %}
+        {% block new_lesson %}{% endblock new_lesson %}
+        {% block user_lessons %}{% endblock user_lessons %}
+        {% block new_recruitment %}{% endblock new_recruitment %}
+    </div>
+</div>
+
+{% endblock content %}

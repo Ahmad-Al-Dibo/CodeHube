@@ -1,0 +1,62 @@
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.container {
+    text-align: center;
+    max-width: 600px;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 8rem;
+    color: #ff6b6b;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #ff6b6b;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff4c4c;
+}
+
+</style>
+<div class="container">
+    <h1>404</h1>
+    <p>Oops! The page you are looking for was not found.</p>
+    <button onclick="goHome()">Ga Terug Naar Home</button>
+</div>
+
+<script>
+    function goHome() {
+    window.location.href = "/";
+}
+
+</script>

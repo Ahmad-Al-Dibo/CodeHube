@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container my-5 border">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Log In</legend>
+
+            <div class="form-group">
+                {{ form.email.label_tag }}
+                {{ form.email }}
+                {% for error in form.email.errors %}
+                    <div class="invalid-feedback d-block">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                {{ form.password.label_tag }}
+                {{ form.password }}
+                {% for error in form.password.errors %}
+                    <div class="invalid-feedback d-block">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                    <div class="alert alert-danger">{{ error }}</div>
+                {% endfor %}
+            {% endif %}
+
+            <div class="form-group my-3">
+                <button type="submit" class="btn btn-outline-info">Login</button>
+            </div>
+
+            <div class="form-check">
+                {{ form.remember }}
+                {{ form.remember.label_tag }}
+            </div>
+        </fieldset>
+    </form>
+
+    <small class="text-muted ml-2">
+        <a href="">Forgot Password?</a>
+    </small>
+    <small class="text-muted">
+        Need an account?
+        <a class="ml-2" href="{% url 'register' %}">Sign Up Here</a>
+    </small>
+</div>
+{% endblock %}

@@ -1,0 +1,104 @@
+{% extends "dashboard/dashboard.html" %}
+{% load static %}
+
+{% block profile %}
+
+<div class="tab-pane fade p-3 {% if active_tab == 'profile' %}show active{% endif %}"
+     id="nav-profile"
+     role="tabpanel"
+     aria-labelledby="nav-profile-tab">
+
+    <form method="POST" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+
+        <!-- ================= Personal information ================= -->
+        <fieldset class="mb-4">
+            <legend class="border-bottom mb-3">Personal Information</legend>
+
+            <div class="mb-3 text-center">
+                {% if image_file %}
+                    <img src="{{ image_file }}"
+                         class="rounded-circle user-img"
+                         alt="Profile picture of {{ request.user.username }}">
+                {% else %}
+                    <img src="{% static 'user_pics/default.png' %}"
+                         class="rounded-circle user-img"
+                         alt="Default profile picture">
+                {% endif %}
+            </div>
+
+            <div class="row mb-3">
+                <div class="col">
+                    <label class="form-label">First Name</label>
+                    <input type="text"
+                           class="form-control"
+                           value="{{ request.user.first_name }}"
+                           readonly>
+                </div>
+
+                <div class="col">
+                    <label class="form-label">Last Name</label>
+                    <input type="text"
+                           class="form-control"
+                           value="{{ request.user.last_name }}"
+                           readonly>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col">
+                    {{ user_form.username.label_tag }} <!-- Label: `label it self` tag: `:` -->
+                    {{ user_form.username }}
+                    {% for error in user_form.username.errors %}
+                        <div class="invalid-feedback d-block">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                <div class="col">
+                    {{ user_form.email.label_tag }}
+                    {{ user_form.email }}
+                    {% for error in user_form.email.errors %}
+                        <div class="invalid-feedback d-block">{{ error }}</div>
+                    {% endfor %}
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- ================= Biography ================= -->
+        <fieldset class="mb-4">
+            <legend class="border-bottom mb-3">Biography</legend>
+
+            <div class="mb-3">
+                {{ profile_form.bio.label_tag }}
+                {{ profile_form.bio }}
+                {% for error in profile_form.bio.errors %}
+                    <div class="invalid-feedback d-block">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="mb-3">
+                {{ profile_form.cv.label_tag }} 
+                {{ profile_form.cv }}
+                {% for error in profile_form.cv.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="mb-3">
+                {{ profile_form.picture.label_tag }}
+                {{ profile_form.picture }}
+                {% for error in profile_form.picture.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+        </fieldset>
+
+        <div class="text-end">
+            <button type="submit" class="btn btn-success">
+                Update profile
+            </button>
+        </div>
+    </form>
+</div>
+
+{% endblock profile %}

@@ -1,0 +1,46 @@
+{%extends "layout.html"%}
+
+{% block head %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='explore.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='main.css')}}">
+{% endblock %}
+
+{% block content%}
+
+<h1>CodeHub - Documentatie</h1>
+
+    <h2>Cursussen toevoegen</h2>
+    <p>Om een nieuwe cursus toe te voegen aan CodeHub, volg je de onderstaande stappen:</p>
+    <ol>
+        <li>Navigeer naar de beheerderspagina en log in met de juiste rechten.</li>
+        <li>Klik op "Cursussen" in het beheerdersmenu.</li>
+        <li>Klik op "Nieuwe cursus toevoegen".</li>
+        <li>Vul de benodigde informatie in, zoals de titel, beschrijving en het niveau van de cursus.</li>
+        <li>Klik op "Opslaan" om de cursus toe te voegen.</li>
+    </ol>
+
+    <h2>Lessen toevoegen</h2>
+    <p>Om een nieuwe les toe te voegen aan CodeHub, volg je de onderstaande stappen:</p>
+    <ol>
+        <li>Selecteer de gewenste cursus waar je de les aan wilt toevoegen.</li>
+        <li>Klik op "Nieuwe les toevoegen" binnen de geselecteerde cursus.</li>
+        <li>Vul de titel en de inhoud van de les in.</li>
+        <li>Gebruik de code-tags om codevoorbeelden in te voegen, bijvoorbeeld <code>&lt;div&gt;</code> voor een HTML-element.</li>
+        <li>Sla de les op om de wijzigingen te bewaren.</li>
+    </ol>
+
+    <h2>Lessen bekijken</h2>
+    <p>Om een les te bekijken in CodeHub, volg je de onderstaande stappen:</p>
+    <ol>
+        <li>Kies een cursus uit het cursusoverzicht.</li>
+        <li>Selecteer de gewenste les binnen de gekozen cursus.</li>
+        <li>De lesinformatie wordt weergegeven, inclusief eventuele codevoorbeelden.</li>
+    </ol>
+
+    <h2>CodeHub verkennen</h2>
+    <p>CodeHub is ontworpen om beginners te helpen leren programmeren op een intuïtieve en gemakkelijk te volgen manier. Het biedt een breed scala aan cursussen en lessen om uit te kiezen, zodat je kunt leren op jouw eigen tempo. Alles wat je nodig hebt, is toewijding en een nieuwsgierige geest om te leren. Veel plezier met programmeren!</p>
+
+{% endblock content %}

@@ -1,0 +1,42 @@
+{%extends "layout.html"%}
+{% block content%}
+
+<section class="bg-ligh">
+    <div class="container p-5">
+        <h3 class="text-center text-secondary" id='learn'>Users</h3>
+        <div class="row">
+            {% for user in users %}
+            <div class="col-sm-12 col-md-6 col-lg-4 p-3 d-flex align-items-stretch">
+                    <div class="card bg-dark-CodeHube text-light h-100">
+                        <div class="card-body text-center">
+                            <h4 class="card-title mb-3">
+                                {{user.fname}}
+                            </h4>
+                            <p class="card-text">{{user.email}}</p>
+                            <a href="/delet-user/{{user.id}}">Delet{{user.id}}</a>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+            <hr>
+            <h3 class="text-center text-secondary" id='learn'>Course Edit</h3>
+            {% for course in courses%}
+            
+            <div class="col-sm-12 col-md-6 col-lg-4 p-3 d-flex align-items-stretch">
+                    <div class="card bg-dark-CodeHube text-light h-100">
+                        
+                        <div class="card-body text-center">
+                            <a href="/edit-course/{{course.id}}">Edit {{course.title}}</a>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock content %}

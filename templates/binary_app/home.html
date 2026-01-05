@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+<form action="" method="POST">
+<div class="container my-5 border">
+<div class="form-group">
+{{ binary_form.text.label(class='form-control-label') }}
+{{ binary_form.text(class='form-control form-control-lg') }}
+<p>{{output}}</p>
+{{ binary_form.submit(class='btn btn-outline-info') }}
+<p>{{output}}</p>
+</div>
+</div>
+</form>
+{% endblock content %}

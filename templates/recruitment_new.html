@@ -1,0 +1,29 @@
+{% extends "dashboard.html" %}
+{% block New_recruitment %}
+
+<!-- New_recruitment -->
+<div class="{{'tab-pane show active fade p-3' if active_tab=='recruitment' else 'tab-pane fade p-3'}}" 
+    id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    
+    <form action=" " method="POST" enctype="multipart/form-data">
+        {{ profile_form.hidden_tag() }}
+    </form>
+
+    <!-- Gebruikerskaarten -->
+    <div class="row">
+        {% for user in users %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">{{ user.fname }} {{ user.Iname }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ user.username }}</h6>
+                    <p class="card-text"><strong>Bio:</strong>{{ user.bio }}</p>
+                    <p><strong>Email:</strong> {{ user.email }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock New_recruitment %}
