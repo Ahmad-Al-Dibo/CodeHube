@@ -15,11 +15,11 @@ def login_view(request):
         password = form.cleaned_data['password']
         remember = form.cleaned_data['remember']
         
-        user = authenticate(request, username=email, password=password)
+        user = authenticate(request, email=email, password=password) 
         if user:
             login(request, user)
             if not remember:
-                request.session.set_expiry(0)
+                request.session.set_expiry(0) # Session expires on browser close
             messages.success(request, "Successfully logged in.")
             return redirect('profile')
         else:
