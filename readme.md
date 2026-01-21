@@ -77,7 +77,7 @@ User remains logged in and profile data persists.
 
 ### Suggested Fix
 Clear user sessions and profile data from the `request` upon database deletion.
-
+Create User session ID. so you do not need to save data in the request.
 </details>
 
 ---
@@ -208,6 +208,26 @@ Fix validation and default handling for unchanged file fields.
 
 ### Issue
 User profile images are not shown in lesson views or author sections.
+
+### Suggested Fix
+Verify template image URLs and ensure images are accessible and rendered correctly.
+
+</details>
+
+---
+
+<details>
+<summary><strong>📝 Improvement: Add `your curses`</strong></summary>
+
+**DATE:** 1/6/2026 – 8:54 PM  
+**Importance:** High  
+**Status:** Open  
+
+**Slug:** `add-your-curses-to-profile-page`
+
+### Issue
+Add a section for "your curses" on the user profile page to display courses created by the user.
+Add options to edit or delete these courses. ofcurse add a button to create a new course.
 
 ### Suggested Fix
 Verify template image URLs and ensure images are accessible and rendered correctly.
